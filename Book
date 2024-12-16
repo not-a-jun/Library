@@ -1,0 +1,39 @@
+class Book {
+    private String title;
+    private String author;
+    private Integer year;
+    private Boolean isAvailable;
+
+    public Book(String title, String author, Integer year, Boolean isAvailable) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.isAvailable = isAvailable;
+    }
+
+    public Book(String title, String author) {
+        this(title, author, 2024, true);
+    }
+
+    public void borrowBook() {
+        if (isAvailable) {
+            isAvailable = false;
+            System.out.println("Книга " + title + " была взята.");
+        }else{
+            System.out.println("Книга " + title + " недоступна.");
+        }
+    }
+
+    public void returnBook() {
+        isAvailable = true;
+        System.out.println("Книга " + title + " возвращена.");
+    }
+
+    public void displayInfo() {
+        System.out.println("Название книги: " + title + ", " + "Автор:" + author + ", " + "Год:" + year + ", " + "Доступность:" + isAvailable);
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+}
